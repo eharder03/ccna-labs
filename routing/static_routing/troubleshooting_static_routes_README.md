@@ -4,19 +4,19 @@ Three separate issues were found across three routers.
 
 Summary of Issues and Fixes
 
-1. R1: Incorrect Next-Hop Address
-R1 had a static route with the wrong next-hop IP address.
-The route was updated to point to the correct next-hop.
+R1: Incorrect Next-Hop Address
+R1 had a static route to 192.168.3.0 0/24 with next-hop 192.168.12.3 which is incorrect.
+The configuration was deleted using no command, then the static route was updated to 192.168.3.0 255.255.255.0  192.168.12.2. 
 
 
-2. R2: Incorrect Exit Interface
-R2 had a static route configured with an incorrect exit interface.
-The route was corrected to use the proper outgoing interface.
+R2: Incorrect Exit Interface
+R2 had a static route configured 192.168.3.0 0/24 with exit-interface set to g0/0, which is incorrect.
+Incorrect configuration was deleted and updated to correct static route 192.168.3.0 255.255.255.0 g0/0 
 
 
-3. R3: Incorrect IP Address on an Interface
-One of R3’s interfaces had the wrong IP address assigned.
-The interface IP was corrected
+R3: Incorrect IP Address on an Interface
+R3 g0/0 interface was configured with ip address 192.168.23.3, which is incorrect. 
+Interface g0/0 was updated with ip address 192.168.13.3 255.255.255.0
 
 
 Verification Steps
@@ -25,9 +25,4 @@ show ip route confirmed the routing tables were correct.
 show ip interface brief verified proper IP assignments.
 A successful ping from PC1 to PC3 confirmed full connectivity.
 
-
-Skills Demonstrated
-Static route troubleshooting
-Route table analysis
-IP addressing correction
 
