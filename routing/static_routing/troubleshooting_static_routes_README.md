@@ -11,7 +11,7 @@ The configuration was deleted using no command, then the static route was update
 
 R2: Incorrect Exit Interface
 R2 had a static route configured 192.168.3.0 0/24 with exit-interface set to g0/0, which is incorrect.
-Incorrect configuration was deleted and updated to correct static route 192.168.3.0 255.255.255.0 g0/0 
+Incorrect configuration was deleted and updated to correct static route 192.168.3.0 255.255.255.0 g0/1 
 
 
 R3: Incorrect IP Address on an Interface
